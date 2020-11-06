@@ -16,15 +16,23 @@ public class AnalysisString extends  Thread {
         this.text = generateString.getTextValue();
     }
 
-    synchronized  public void replaceSymbol(){
-        for (char i : text.toCharArray()) {
-            if(i != "$") {
-                int number = random.nextInt(text.length());
-            } else {
-                break;
+    synchronized public void replaceSymbol(){
+        for (char i: text.toCharArray()) {
+            if(i != '$'){
+                int number  = random.nextInt(text.length());
+                char character = text.charAt(number);
+                String newText = text.replace(character,'$');
+                System.out.println(newText);
             }
 
         }
+
+    }
+
+    public void run(){
+        replaceSymbol();
     }
 
 }
+
+
